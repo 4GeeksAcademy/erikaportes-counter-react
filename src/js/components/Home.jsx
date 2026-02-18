@@ -1,28 +1,34 @@
 import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+// index.css'
+import '../../styles/index.css'
+
+const DigitFunction = (props) => {
+	return (
+		<div>
+			{props.tiempo}
+		</div>
+	)
+}
 
 //create your first component
-const Home = () => {
+const SecondsCounter = (props) => {
 	return (
-		<div className="text-center">
-            
+		<div className="contenedor">
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<div>
+				<i className="fa-regular fa-clock"></i>
+			</div>
+
+			<DigitFunction tiempo={Math.floor((props.seconds % 1000000) / 100000)} > </DigitFunction>
+			<DigitFunction tiempo={Math.floor((props.seconds % 100000) / 10000)} > </DigitFunction>
+			<DigitFunction tiempo={Math.floor((props.seconds % 10000) / 1000)} > </DigitFunction>
+			<DigitFunction tiempo={Math.floor((props.seconds % 1000) / 100)} > </DigitFunction>
+			<DigitFunction tiempo={Math.floor((props.seconds % 100) / 10)} > </DigitFunction>
+			<DigitFunction tiempo={Math.floor((props.seconds % 10) / 1)} > </DigitFunction>
+
 		</div>
 	);
 };
 
-export default Home;
+export default SecondsCounter;
